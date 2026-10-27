@@ -12,7 +12,7 @@
 #define NANOSEC                     1000000000
 #define MICROSEC                    1000000
 
-#ifdef USE_RDTSC
+#if defined(USE_RDTSC) && (defined(__i386__) || defined(__x86_64__))
     #include "rdtsc.h"
     static inline uint64_t
     gettime() {
@@ -27,14 +27,8 @@
     static inline uint64_t
     gettime() {
         struct timespec ti;
-        // clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ti);
-        // clock_gettime(CLOCK_MONOTONIC, &ti);  
-        clock_gettime(CLOCK_REALTIME, &ti);  // would be faster
-
-        long sec = ti.tv_sec & 0xffff;
-        long nsec = ti.tv_nsec;
-
-        return sec * NANOSEC + nsec;
+        clock_gettime(CLOCK_MONOTONIC, &ti);
+        return (uint64_t)ti.tv_sec * NANOSEC + (uint64_t)ti.tv_nsec;
     }
 
     static inline double

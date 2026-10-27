@@ -28,7 +28,7 @@ freebsd : PLAT = freebsd
 
 macosx : SHARED := -fPIC -dynamiclib -Wl,-undefined,dynamic_lookup
 macosx : EXPORT :=
-macosx linux linux_nojemalloc : SKYNET_LIBS += -ldl
+linux linux_nojemalloc : SKYNET_LIBS += -ldl
 linux freebsd linux_nojemalloc : SKYNET_LIBS += -lrt
 
 # Turn off jemalloc and malloc hook on macosx

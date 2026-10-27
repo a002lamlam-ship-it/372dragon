@@ -1,0 +1,116 @@
+{
+  "upstream": "https://github.com/cloudwu/skynet",
+  "commit": "4faa6499e819e4b5463d0b1efda7cf9d9f6dabcc",
+  "tag": "v1.4.0",
+  "note": "Missing files only; existing customized files retained. Compatibility requires runtime validation.",
+  "files": [
+    {
+      "path": "skynet-src/skynet_daemon.c",
+      "sha256": "2be34f5b7809f6c4319469216c61c3d9d943c5aa09c9e4ed7e57ea7aad971382"
+    },
+    {
+      "path": "skynet-src/skynet_daemon.h",
+      "sha256": "8dc30f6180b47f467d2c571e3d55d97f756bf75c11d8e57d297d34499b1a12a9"
+    },
+    {
+      "path": "skynet-src/skynet_env.c",
+      "sha256": "83c1a68d0711dda4cbb05373a21f5c0b56d31f725b62048e8a6713d953812852"
+    },
+    {
+      "path": "skynet-src/skynet_env.h",
+      "sha256": "71382d1d902dcf59965de2439b13758a78bcdf713c7c7d9edad530586888906d"
+    },
+    {
+      "path": "skynet-src/skynet_error.c",
+      "sha256": "234bab2ab7010d991d0099e499700a0dec25ef77079260d129730e94ac7eca91"
+    },
+    {
+      "path": "skynet-src/skynet_handle.c",
+      "sha256": "670b6e0dee728670aa52f502fff44f0784911400384b4deeedc99567efe50027"
+    },
+    {
+      "path": "skynet-src/skynet_handle.h",
+      "sha256": "9381325d3f93758ac36dd36e8f177cd09e4e1dbfabebbb2cd25f6e10aa2aa2ab"
+    },
+    {
+      "path": "skynet-src/skynet_harbor.c",
+      "sha256": "0752f0967ec6e13b71ae12b8452aa35a8f41c1ad746ac658ef05db82570eb3ed"
+    },
+    {
+      "path": "skynet-src/skynet_harbor.h",
+      "sha256": "c387da20d598b59de3ff809fe43eefd93e620e552c1d97de170a7cefaae029b5"
+    },
+    {
+      "path": "skynet-src/skynet_imp.h",
+      "sha256": "433f1fe3d93771652ff9a8543eb9af46d69032db6c12cb5950314f8523224ee4"
+    },
+    {
+      "path": "skynet-src/skynet_log.c",
+      "sha256": "472b8fab48bfafc8dd871fb490005d232fec3cbed09e39ac3c95ac0d0b22b7ed"
+    },
+    {
+      "path": "skynet-src/skynet_log.h",
+      "sha256": "71d1553f5893b13a17f2581cf0e3c2104df90ec8c6f16d81a195c8b6236f774a"
+    },
+    {
+      "path": "skynet-src/skynet_main.c",
+      "sha256": "f76c917f3dfa283e3b8aefc6a49e145c921fb3b866bae81097dadc14ab2d9703"
+    },
+    {
+      "path": "skynet-src/skynet_malloc.h",
+      "sha256": "1e41039e9321beed4e288538a34dcfb082d320a1d65e5369cecf635be2955da9"
+    },
+    {
+      "path": "skynet-src/skynet_module.c",
+      "sha256": "5317a8ddcb882d88022432367b158fc23400002cacc10fc711617d2e2f3dfe63"
+    },
+    {
+      "path": "skynet-src/skynet_module.h",
+      "sha256": "95473fc43187f45bb3cb5300d861608336f60783562b37318c2683853a491925"
+    },
+    {
+      "path": "skynet-src/skynet_monitor.c",
+      "sha256": "879fedeb811acd9bc9ca98fc011ed5a809b8c4131a3647c2d826ab3b3a0c0a12"
+    },
+    {
+      "path": "skynet-src/skynet_monitor.h",
+      "sha256": "2297e8ef506bf331f0bb098c5854021a6e5532e1279c2d205db62cc178be9c89"
+    },
+    {
+      "path": "skynet-src/skynet_mq.c",
+      "sha256": "11eb445405e59b419d20a17c35a15308ff3b84672410bfcdb00b7d53acc8008a"
+    },
+    {
+      "path": "skynet-src/skynet_mq.h",
+      "sha256": "422aaad1e86a90037c9da472a5bd38f9f379868439c42a2e5870bb5c35c9ad33"
+    },
+    {
+      "path": "skynet-src/skynet_server.c",
+      "sha256": "8d9202d8d0341312fa347282988defa604a81221dab63ba6497ed3d13c5484ef"
+    },
+    {
+      "path": "skynet-src/skynet_server.h",
+      "sha256": "fb7ea33829ff4f47379fc5e706deaa949699c5e2d544d77c9086a047158aa51e"
+    },
+    {
+      "path": "skynet-src/skynet_socket.c",
+      "sha256": "3ee755e6be3dff9c60e079406ade5e09bcc762ec4d6a46342a0ba573988b613e"
+    },
+    {
+      "path": "skynet-src/skynet_socket.h",
+      "sha256": "2dc8583a604cb95e7d189e64522c5027e11d637f77779aed766caada94eae097"
+    },
+    {
+      "path": "skynet-src/skynet_start.c",
+      "sha256": "5551b4343e3953346e677c74fd30ed24d06a6790b9c05b69af5878addaf50ca2"
+    },
+    {
+      "path": "skynet-src/skynet_timer.c",
+      "sha256": "9307cfcdcbb5606706deb1a7101d49f2f95631050b1a79f1f49ed72098596af6"
+    },
+    {
+      "path": "skynet-src/skynet_timer.h",
+      "sha256": "6ed1e209893bf3d479c864ad980564980d48b67a6ab69af6cd623300ba41c708"
+    }
+  ]
+}

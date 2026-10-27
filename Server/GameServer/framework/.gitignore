@@ -1,7 +1,5 @@
 *.o
 *.a
-!3rd/lua/liblua.a
-!3rd/jemalloc/lib/*.a
 /skynet
 /skynet.pid
 3rd/lua/lua

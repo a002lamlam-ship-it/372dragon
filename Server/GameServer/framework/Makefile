@@ -15,12 +15,12 @@ LUA_LIB ?= $(LUA_STATICLIB)
 LUA_INC ?= 3rd/lua
 
 $(LUA_STATICLIB) :
-	cd 3rd/lua && $(MAKE) CC='$(CC) -std=gnu99' $(PLAT)
+	cd 3rd/lua && $(MAKE) CC='$(CC) -std=gnu99' $(if $(filter linux_nojemalloc,$(PLAT)),linux,$(PLAT))
 
 # https : turn on TLS_MODULE to add https support
 TLS_MODULE=ltls
-TLS_LIB=/usr/lib64/openssl
-TLS_INC=/usr/include/openssl
+TLS_LIB ?= /usr/lib64/openssl
+TLS_INC ?= /usr/include/openssl
 
 ## cipher: use openssl cipher 
 CIPHER_MODULE = lcipher
@@ -72,10 +72,10 @@ $(SKYNET_BUILD_PATH)/skynet : $(foreach v, $(SKYNET_SRC), skynet-src/$(v)) $(LUA
 	$(CC) $(CFLAGS) -o $@ $^ -Iskynet-src -I$(JEMALLOC_INC) $(LDFLAGS) $(EXPORT) $(SKYNET_LIBS) $(SKYNET_DEFINES)
 
 $(LUA_CLIB_PATH) :
-	mkdir $(LUA_CLIB_PATH)
+	mkdir -p $(LUA_CLIB_PATH)
 
 $(CSERVICE_PATH) :
-	mkdir $(CSERVICE_PATH)
+	mkdir -p $(CSERVICE_PATH)
 
 define CSERVICE_TEMP
   $$(CSERVICE_PATH)/$(1).so : service-src/service_$(1).c | $$(CSERVICE_PATH)
@@ -100,10 +100,10 @@ $(LUA_CLIB_PATH)/sproto.so : lualib-src/sproto/sproto.c lualib-src/sproto/lsprot
 	$(CC) $(CFLAGS) $(SHARED) -Ilualib-src/sproto $^ -o $@ 
 
 $(LUA_CLIB_PATH)/ltls.so : lualib-src/ltls.c | $(LUA_CLIB_PATH)
-	$(CC) $(CFLAGS) $(SHARED) -Iskynet-src -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl
+	$(CC) $(CFLAGS) $(SHARED) -Iskynet-src -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl -lcrypto
 
 $(LUA_CLIB_PATH)/lcipher.so : lualib-src/lcipher.c | $(LUA_CLIB_PATH)
-	$(CC) $(CFLAGS) $(SHARED) -Iskynet-src -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl
+	$(CC) $(CFLAGS) $(SHARED) -Iskynet-src -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl -lcrypto
 
 $(LUA_CLIB_PATH)/lpeg.so : 3rd/lpeg/lpcap.c 3rd/lpeg/lpcode.c 3rd/lpeg/lpprint.c 3rd/lpeg/lptree.c 3rd/lpeg/lpvm.c | $(LUA_CLIB_PATH)
 	$(CC) $(CFLAGS) $(SHARED) -I3rd/lpeg $^ -o $@ 
@@ -115,7 +115,7 @@ $(LUA_CLIB_PATH)/pb.so : $(addprefix 3rd/lua-pbc/,$(LUA_CLIB_PROTOBUF)) | $(LUA_
 	$(CC) $(CFLAGS) $(SHARED) -I3rd/lua-pbc $^ -o $@ 
 
 $(LUA_CLIB_PATH)/luarsa.so : 3rd/lua-rsa/luarsa.c | $(LUA_CLIB_PATH)
-	$(CC) $(CFLAGS) $(SHARED) -I3rd/lua-rsa -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl
+	$(CC) $(CFLAGS) $(SHARED) -I3rd/lua-rsa -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl -lcrypto
 
 $(LUA_CLIB_PATH)/zlib.so : 3rd/lua-zlib/lua_zlib.c | $(LUA_CLIB_PATH)
 	$(CC) $(CFLAGS) $(SHARED) -I3rd/lua-zlib $^ -o $@ -lz

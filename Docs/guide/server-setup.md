@@ -5,6 +5,8 @@
 Server ở `Server/`, dùng Skynet/Lua và module C/C++. Nó không được build bởi CMake
 client. Chưa có bộ provision/cài dịch vụ hoàn chỉnh được nghiệm thu trên máy mới.
 
+Hướng port riêng: [macOS Apple Silicon native](server-macos-arm64.md) (chưa nghiệm thu trên Mac).
+
 ## 1. Bố cục và phụ thuộc
 
 | Đường dẫn | Nội dung |

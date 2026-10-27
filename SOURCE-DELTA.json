@@ -1,0 +1,5 @@
+{
+  "baseCommit": "436a12317f0408f303692078790f48537a33fd20",
+  "repository": "a002lamlam-ship-it/372dragon",
+  "instructions": "Apply onto the base checkout. Contains source changes and world/combat data, not compiled macOS binaries. See Tools/unity/Package/ART-COMBAT.md."
+}

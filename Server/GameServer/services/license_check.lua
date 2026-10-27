@@ -3,6 +3,12 @@ local skynet = require "skynet"
 local M = {}
 
 function M.check_or_abort()
+    -- Explicit development configuration; no replacement native module required.
+    if skynet.getenv("skip_license_check") == "true" then
+        skynet.error("[DEV] License module check disabled by configuration")
+        return true
+    end
+
     local ok, mod = pcall(require, "llicense")
     if not ok then
         skynet.error("[FATAL] Core service initialization failed (code -3)")
